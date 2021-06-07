@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://17866624261.github.io">
-  <title>Tag: 开发工具 | Yun&#39;s blog</title>
+  <title>MySQL的Exception | Yun&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yun&#39;s blog">
-<meta property="og:url" content="https://17866624261.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/index.html">
+  <meta name="description" content="MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题在项目进行数据库查询时，出现了如下的错误 1234Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL的Exception">
+<meta property="og:url" content="https://17866624261.github.io/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Yun&#39;s blog">
+<meta property="og:description" content="MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题在项目进行数据库查询时，出现了如下的错误 1234Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141646.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141712.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141757.png">
+<meta property="article:published_time" content="2021-05-26T06:05:20.000Z">
+<meta property="article:modified_time" content="2021-06-07T06:21:03.000Z">
 <meta property="article:author" content="Yun">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141646.png">
   
     <link rel="alternative" href="/atom.xml" title="Yun&#39;s blog" type="application/atom+xml">
   
@@ -168,60 +177,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL遇见Exception #1的问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-05-20T11:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/">Hexo博客的搭建和简单使用</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL的Exception
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-05-26T06:05:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题"><a href="#MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题" class="headerlink" title="MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题"></a>MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题</h1><p>在项目进行数据库查询时，出现了如下的错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Expression #1 of SELECT list is not in GROUP BY clause and contains </span><br><span class="line">nonaggregated column ‘sss.month_id’ which is not functionally </span><br><span class="line">dependent on columns in GROUP BY clause; this is incompatible with </span><br><span class="line">sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure>
+
+<p>经过查询发现：</p>
+<p>MySQL 5.7.5及以上的版本中，如果启用了ONLY_FULL_GROUP_BY SQL模式(默认启用)，MySQL会拒绝列表、Having条件、OrderBy列表的查询引用在GROUP BY子句中既未命名的非集合列，也不再功能上依赖它们。由于我的数据库版本是5.7.31，因此也存在这样的问题</p>
+<p>可以打开navicat，找到工具下的命令列界面</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141646.png"></p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141712.png"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select version() from dual;</span><br></pre></td></tr></table></figure>
+
+<p>查看MySQL版本</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141757.png"></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开navicat，新建查询，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+
+<p>查看结果，会得到如下的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_</span><br></pre></td></tr></table></figure>
+
+<p>将结果前面的ONLY_FULL_GROUP_BY,删掉就可以解决这个问题</p>
+<p>使用如下语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set @@global.sql_mode =&#x27;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>就可以完美解决了。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://17866624261.github.io/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">c标签不接受任何表达式错误</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,9 +383,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -63,6 +63,10 @@
 	        
 				<li><a href="/tags/python">python</a></li>
 	        
+				<li><a href="/tags/MySQL">MySQL</a></li>
+	        
+				<li><a href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF">前端技术</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -119,6 +123,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -133,15 +141,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">开发工具</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">开发工具</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/Java">Java</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/Java">Java</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/python">python</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/python">python</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/MySQL">MySQL</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF">前端技术</a></li>
 		        
 				</ul>
 			</nav>
@@ -157,6 +169,181 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-MySQL遇见Exception #1的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/">MySQL的Exception</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-05-26T06:05:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题"><a href="#MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题" class="headerlink" title="MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题"></a>MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题</h1><p>在项目进行数据库查询时，出现了如下的错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Expression #1 of SELECT list is not in GROUP BY clause and contains </span><br><span class="line">nonaggregated column ‘sss.month_id’ which is not functionally </span><br><span class="line">dependent on columns in GROUP BY clause; this is incompatible with </span><br><span class="line">sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure>
+
+<p>经过查询发现：</p>
+<p>MySQL 5.7.5及以上的版本中，如果启用了ONLY_FULL_GROUP_BY SQL模式(默认启用)，MySQL会拒绝列表、Having条件、OrderBy列表的查询引用在GROUP BY子句中既未命名的非集合列，也不再功能上依赖它们。由于我的数据库版本是5.7.31，因此也存在这样的问题</p>
+<p>可以打开navicat，找到工具下的命令列界面</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141646.png"></p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141712.png"></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select version() from dual;</span><br></pre></td></tr></table></figure>
+
+<p>查看MySQL版本</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141757.png"></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开navicat，新建查询，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
+
+<p>查看结果，会得到如下的结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_</span><br></pre></td></tr></table></figure>
+
+<p>将结果前面的ONLY_FULL_GROUP_BY,删掉就可以解决这个问题</p>
+<p>使用如下语句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set @@global.sql_mode =&#x27;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>就可以完美解决了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c标签不接受任何表达式错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/">c标签不接受任何表达式错误</a>
+    </h1>
+  
+
+        
+        <a href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/" class="archive-article-date">
+  	<time datetime="2021-05-25T05:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL错误——根据标记文件中的TLD或attribute指令，attribute-items-不接受任何表达式"><a href="#MySQL错误——根据标记文件中的TLD或attribute指令，attribute-items-不接受任何表达式" class="headerlink" title="MySQL错误——根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式"></a>MySQL错误——根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式</h1><p>在运行项目时出现异常提示：根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607135833.png"></p>
+<hr>
+        
+          <a class="article-more-a" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hexo博客搭建和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -326,6 +513,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端技术</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
