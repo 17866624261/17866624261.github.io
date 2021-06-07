@@ -192,29 +192,9 @@
       
         <h1 id="MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题"><a href="#MySQL-遇见Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause-and-contains-nonaggre的问题" class="headerlink" title="MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题"></a>MySQL 遇见Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggre的问题</h1><p>在项目进行数据库查询时，出现了如下的错误</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Expression #1 of SELECT list is not in GROUP BY clause and contains </span><br><span class="line">nonaggregated column ‘sss.month_id’ which is not functionally </span><br><span class="line">dependent on columns in GROUP BY clause; this is incompatible with </span><br><span class="line">sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure>
-
-<p>经过查询发现：</p>
-<p>MySQL 5.7.5及以上的版本中，如果启用了ONLY_FULL_GROUP_BY SQL模式(默认启用)，MySQL会拒绝列表、Having条件、OrderBy列表的查询引用在GROUP BY子句中既未命名的非集合列，也不再功能上依赖它们。由于我的数据库版本是5.7.31，因此也存在这样的问题</p>
-<p>可以打开navicat，找到工具下的命令列界面</p>
-<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141646.png"></p>
-<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141712.png"></p>
-<p>输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select version() from dual;</span><br></pre></td></tr></table></figure>
-
-<p>查看MySQL版本</p>
-<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607141757.png"></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开navicat，新建查询，输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@global.sql_mode;</span><br></pre></td></tr></table></figure>
-
-<p>查看结果，会得到如下的结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_</span><br></pre></td></tr></table></figure>
-
-<p>将结果前面的ONLY_FULL_GROUP_BY,删掉就可以解决这个问题</p>
-<p>使用如下语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set @@global.sql_mode =&#x27;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>就可以完美解决了。</p>
-
+        
+          <a class="article-more-a" href="/2021/05/26/MySQL%E9%81%87%E8%A7%81Exception%20#1%E7%9A%84%E9%97%AE%E9%A2%98/#more">more >></a>
+        
       
 
       
