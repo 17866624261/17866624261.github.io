@@ -188,6 +188,248 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-通过Vue-ui启动无反应或者直接关闭的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/">通过Vue ui启动无反应或者直接关闭的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-07-09T14:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开发Vue项目的过程中，使用Vue的UI面板运行会无反应或者直接停止，不会编译报错</p>
+<p>打开日志显示以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">0 info it worked if it ends with ok</span><br><span class="line">1 verbose cli [ &#x27;/usr/local/bin/node&#x27;, &#x27;/usr/local/bin/npm&#x27;, &#x27;run&#x27;, &#x27;dev&#x27; ]</span><br><span class="line">2 info using npm@6.14.13</span><br><span class="line">3 info using node@v14.17.0</span><br><span class="line">4 verbose stack Error: missing script: dev</span><br><span class="line">4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:155:19)</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:63:5</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:116:5</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:436:5</span><br><span class="line">4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:391:45)</span><br><span class="line">4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:434:3)</span><br><span class="line">4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:161:5)</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:382:12</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:123:16</span><br><span class="line">4 verbose stack     at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:73:3)</span><br><span class="line">5 verbose cwd /Users/a/vue/vue_shop</span><br><span class="line">6 verbose Darwin 19.6.0</span><br><span class="line">7 verbose argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;run&quot; &quot;dev&quot;</span><br><span class="line">8 verbose node v14.17.0</span><br><span class="line">9 verbose npm  v6.14.13</span><br><span class="line">10 error missing script: dev</span><br><span class="line">11 verbose exit [ 1, true ]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>百度后发现百度的答案与我的问题不一样</p>
+<p>此时突然想到之前好像将运行vue ui的终端给关掉了，于是怀疑是不是因为关掉终端导致的运行失败，于是重启终端，重新运行vue ui指令，发现可以重新编译了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-在idea中关闭ESLint导致频繁报错问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/09/%E5%9C%A8idea%E4%B8%AD%E5%85%B3%E9%97%ADESLint%E5%AF%BC%E8%87%B4%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">在idea中关闭ESLint导致频繁报错问题</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/09/%E5%9C%A8idea%E4%B8%AD%E5%85%B3%E9%97%ADESLint%E5%AF%BC%E8%87%B4%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-07-09T14:10:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用vue ui创建项目的过程中选择了ESLint检查语法的选项，导致了项目的语法检查十分的严格，让人头疼，于是我将idea中的ESLint检查关掉了。</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210720221527.png"></p>
+<p>关掉以后导致了每次修改代码，都会导致热部署的项目编译失败，需要重新启动才能通过编译，经过排查之后发现确实是因为关闭了ESLint的问题，于是将开关重新打开，同时选中Run eslint –fix on save 选项，这个选项可以在保存的时候自动修正代码为符合ESLint格式的代码。</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210720221833.png"></p>
+<p>问题解决！！！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/09/%E5%9C%A8idea%E4%B8%AD%E5%85%B3%E9%97%ADESLint%E5%AF%BC%E8%87%B4%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vue项目的开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/09/Vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91/">Vue项目的开发</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/09/Vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91/" class="archive-article-date">
+  	<time datetime="2021-07-09T01:30:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/09/Vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-创建一个vue项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -738,161 +980,10 @@
 
 
   
-    <article id="post-c标签不接受任何表达式错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/">c标签不接受任何表达式错误</a>
-    </h1>
-  
-
-        
-        <a href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2021-05-25T05:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MySQL错误——根据标记文件中的TLD或attribute指令，attribute-items-不接受任何表达式"><a href="#MySQL错误——根据标记文件中的TLD或attribute指令，attribute-items-不接受任何表达式" class="headerlink" title="MySQL错误——根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式"></a>MySQL错误——根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式</h1><p>在运行项目时出现异常提示：根据标记文件中的TLD或attribute指令，attribute[items]不接受任何表达式</p>
-<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210607135833.png"></p>
-<hr>
-        
-          <a class="article-more-a" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/05/25/c%E6%A0%87%E7%AD%BE%E4%B8%8D%E6%8E%A5%E5%8F%97%E4%BB%BB%E4%BD%95%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%94%99%E8%AF%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo博客搭建和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/">Hexo博客的搭建和简单使用</a>
-    </h1>
-  
-
-        
-        <a href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-05-20T11:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hexo博客的搭建和简单使用"><a href="#Hexo博客的搭建和简单使用" class="headerlink" title="Hexo博客的搭建和简单使用"></a>Hexo博客的搭建和简单使用</h1><p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210527214735.png"></p>
-<hr>
-        
-          <a class="article-more-a" href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/05/20/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
