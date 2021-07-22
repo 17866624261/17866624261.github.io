@@ -6,21 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://17866624261.github.io">
-  <title>通过Vue ui启动无反应或者直接关闭的问题 | Yun&#39;s blog</title>
+  <title>如何在创建项目时连接到github仓库 | Yun&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在开发Vue项目的过程中，使用Vue的UI面板运行会无反应或者直接停止，不会编译报错 打开日志显示以下代码 12345678910111213141516171819202122230 info it worked if it ends with ok1 verbose cli [ &amp;#x27;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;node&amp;#x27;, &amp;#x27;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;npm&amp;">
+  <meta name="description" content="github作为一个项目托管平台，可以有效地管理我们的项目，作为开发人员掌握这一技术是必不可少的。那么我们该如何使用github管理自己的项目呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过Vue ui启动无反应或者直接关闭的问题">
-<meta property="og:url" content="https://17866624261.github.io/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="如何在创建项目时连接到github仓库">
+<meta property="og:url" content="https://17866624261.github.io/2021/07/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%88%B0github%E4%BB%93%E5%BA%93/index.html">
 <meta property="og:site_name" content="Yun&#39;s blog">
-<meta property="og:description" content="在开发Vue项目的过程中，使用Vue的UI面板运行会无反应或者直接停止，不会编译报错 打开日志显示以下代码 12345678910111213141516171819202122230 info it worked if it ends with ok1 verbose cli [ &amp;#x27;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;node&amp;#x27;, &amp;#x27;&#x2F;usr&#x2F;local&#x2F;bin&#x2F;npm&amp;">
+<meta property="og:description" content="github作为一个项目托管平台，可以有效地管理我们的项目，作为开发人员掌握这一技术是必不可少的。那么我们该如何使用github管理自己的项目呢？">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-09T14:19:28.000Z">
-<meta property="article:modified_time" content="2021-07-20T14:24:51.958Z">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722090852.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091113.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091149.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091254.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092527.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092650.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092831.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093344.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093528.png">
+<meta property="og:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093903.png">
+<meta property="article:published_time" content="2021-07-10T06:14:55.000Z">
+<meta property="article:modified_time" content="2021-07-22T02:29:03.239Z">
 <meta property="article:author" content="Yun">
-<meta property="article:tag" content="前端技术">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722090852.png">
   
     <link rel="alternative" href="/atom.xml" title="Yun&#39;s blog" type="application/atom+xml">
   
@@ -192,32 +202,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-通过Vue-ui启动无反应或者直接关闭的问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-如何在创建项目时连接到github仓库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      通过Vue ui启动无反应或者直接关闭的问题
+      如何在创建项目时连接到github仓库
     </h1>
   
 
         
-        <a href="/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-07-09T14:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-09</time>
+        <a href="/2021/07/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%88%B0github%E4%BB%93%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2021-07-10T06:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在开发Vue项目的过程中，使用Vue的UI面板运行会无反应或者直接停止，不会编译报错</p>
-<p>打开日志显示以下代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">0 info it worked if it ends with ok</span><br><span class="line">1 verbose cli [ &#x27;/usr/local/bin/node&#x27;, &#x27;/usr/local/bin/npm&#x27;, &#x27;run&#x27;, &#x27;dev&#x27; ]</span><br><span class="line">2 info using npm@6.14.13</span><br><span class="line">3 info using node@v14.17.0</span><br><span class="line">4 verbose stack Error: missing script: dev</span><br><span class="line">4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:155:19)</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:63:5</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:116:5</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:436:5</span><br><span class="line">4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:391:45)</span><br><span class="line">4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:434:3)</span><br><span class="line">4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:161:5)</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:382:12</span><br><span class="line">4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:123:16</span><br><span class="line">4 verbose stack     at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:73:3)</span><br><span class="line">5 verbose cwd /Users/a/vue/vue_shop</span><br><span class="line">6 verbose Darwin 19.6.0</span><br><span class="line">7 verbose argv &quot;/usr/local/bin/node&quot; &quot;/usr/local/bin/npm&quot; &quot;run&quot; &quot;dev&quot;</span><br><span class="line">8 verbose node v14.17.0</span><br><span class="line">9 verbose npm  v6.14.13</span><br><span class="line">10 error missing script: dev</span><br><span class="line">11 verbose exit [ 1, true ]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>github作为一个项目托管平台，可以有效地管理我们的项目，作为开发人员掌握这一技术是必不可少的。那么我们该如何使用github管理自己的项目呢？</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722090852.png"></p>
+<span id="more"></span>
 
-<p>百度后发现百度的答案与我的问题不一样</p>
-<p>此时突然想到之前好像将运行vue ui的终端给关掉了，于是怀疑是不是因为关掉终端导致的运行失败，于是重启终端，重新运行vue ui指令，发现可以重新编译了。</p>
+
+
+<h2 id="1-生成SSH秘钥"><a href="#1-生成SSH秘钥" class="headerlink" title="1.生成SSH秘钥"></a>1.生成SSH秘钥</h2><p>首先要添加公钥，我们来的github的设置界面</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091113.png"></p>
+<p>然后选择SSH栏</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091149.png"></p>
+<p>点击New SSH key选项</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722091254.png"></p>
+<ul>
+<li><strong>生成公钥</strong></li>
+</ul>
+<p>如果你有公钥了，那么跳过这一步</p>
+<p>打开终端，输入<code>~/.ssh</code>查看电脑上是不是有.ssh这个文件夹</p>
+<p>然后输入<code>ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code>生成公钥，按照提示输入三次回车即可生成默认公钥</p>
+<p>生成公钥之后，去提示的文件夹中查看一下里面的文件</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092527.png"></p>
+<ul>
+<li><strong>去github上绑定公钥</strong></li>
+</ul>
+<p>然后就可以去github上绑定公钥了，回到刚才的页面，可以看到如下：</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092650.png"></p>
+<p>用随便一个编译器打开id_rsa.pub文件，复制里面的代码到上面的key中，然后起一个标题，SSH就建立成功了</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722092831.png"></p>
+<ul>
+<li><strong>测试SSH key</strong></li>
+</ul>
+<p>建立成功之后测试一下SSH</p>
+<p>在终端中输入<code>ssh -T git@github.com</code>指令，注意这里的邮箱不是自己的邮箱，然后会提示你</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host ‘github.com (13.229.188.59)’ can’t be established.</span><br><span class="line">RSA key fingerprint is SHA256:nThbg6kXUp…</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])?</span><br></pre></td></tr></table></figure>
+
+<p>在里面输入yes，回车，如果看到下面的提示那么就说明成功了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi “用户名”! You’ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+<p>成功之后就可以创建仓库，链接项目了</p>
+<h2 id="2-创建仓库"><a href="#2-创建仓库" class="headerlink" title="2.创建仓库"></a>2.创建仓库</h2><p>![image-20210722093203007](/Users/a/Library/Application Support/typora-user-images/image-20210722093203007.png)</p>
+<p>在上面的位置点击New repository创建一个新的仓库</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093344.png"></p>
+<p>之后来到这个界面就表示创建成功了</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093528.png"></p>
+<p>然后我们首先在自己的电脑上全局设置一下Git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">git config --global user.email &quot;创建github使用的邮箱&quot;</span><br></pre></td></tr></table></figure>
+
+<p>完成之后cd到自己的项目中，输入<code>git init</code>初始化一下git，生成仓库</p>
+<p>然后就可以按照下面的提示，链接到远程仓库了</p>
+<p><img src="https://yun-blog-img.oss-cn-beijing.aliyuncs.com/yun-blog-img/20210722093903.png"></p>
+<p>至此创建仓库并且链接就成功了，我们可以在编译器中随时使用git命令管理自己的代码了。</p>
 
       
 
@@ -252,11 +306,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">开发工具</a>
         		</li>
       		
 		</ul>
@@ -312,7 +362,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://17866624261.github.io/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://17866624261.github.io/2021/07/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%88%B0github%E4%BB%93%E5%BA%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +376,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/07/10/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%97%B6%E8%BF%9E%E6%8E%A5%E5%88%B0github%E4%BB%93%E5%BA%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          如何在创建项目时连接到github仓库
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/07/09/%E5%9C%A8idea%E4%B8%AD%E5%85%B3%E9%97%ADESLint%E5%AF%BC%E8%87%B4%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在idea中关闭ESLint导致频繁报错问题</div>
+    <a href="/2021/07/09/%E9%80%9A%E8%BF%87Vue-ui%E5%90%AF%E5%8A%A8%E6%97%A0%E5%8F%8D%E5%BA%94%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5%E5%85%B3%E9%97%AD%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过Vue ui启动无反应或者直接关闭的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
